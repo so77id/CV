@@ -5,10 +5,10 @@
 \usepackage{etoolbox}
 
 % Default language if none was set by the wrapper file.
-\providecommand{\lang}{en}
+\providecommand{\resumelang}{en}
 
 % Branch on language: \iflang{<code>}{<then>}{<else>}
-\newcommand{\iflang}[3]{\ifdefstring{\lang}{#1}{#2}{#3}}
+\newcommand{\iflang}[3]{\ifdefstring{\resumelang}{#1}{#2}{#3}}
 
 % Month name by number (1..12). Add new languages here.
 \newcommand{\monthname}[1]{%
