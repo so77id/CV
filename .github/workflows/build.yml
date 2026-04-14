@@ -26,16 +26,10 @@ jobs:
           root_file: cv.tex
           latexmk_use_xelatex: true
 
-      - name: Compile resume.tex
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: resume.tex
-          latexmk_use_xelatex: true
-
       - name: Stage site
         run: |
           mkdir -p site
-          cp cv.pdf resume.pdf site/
+          cp cv.pdf site/
           cat > site/index.html <<'HTML'
           <!doctype html>
           <html lang="en">
@@ -56,8 +50,7 @@ jobs:
             <h1>Mauricio Rodriguez</h1>
             <p>Documents compiled automatically from LaTeX sources.</p>
             <div class="docs">
-              <a href="cv.pdf"><strong>CV (full)</strong></a>
-              <a href="resume.pdf">Resume</a>
+              <a href="cv.pdf"><strong>Download CV (PDF)</strong></a>
             </div>
             <iframe src="cv.pdf" title="CV preview"></iframe>
           </body>
