@@ -5,7 +5,7 @@ Backlog of ideas to evolve the CV repo beyond a single-PDF pipeline.
 ## Selected for current work
 
 - [x] **Build badge in README** — status of the GitHub Actions build + direct link to the published PDF.
-- [ ] **Improved landing page** — replace the bare iframe with an HTML landing page that includes name, headline, links (LinkedIn/GitHub/email), and an embedded PDF preview. Minimal personal portfolio.
+- [x] ~~**Improved landing page**~~ — dropped. The README badge is enough to reach the PDF.
 - [ ] **ES/EN versions** — compile Spanish and English resumes from shared sources. Publish as `resume-en.pdf` and `resume-es.pdf`, linked from the landing page.
 
 ## Backlog

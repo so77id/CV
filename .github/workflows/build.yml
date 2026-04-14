@@ -30,32 +30,6 @@ jobs:
         run: |
           mkdir -p site
           cp resume.pdf site/
-          cat > site/index.html <<'HTML'
-          <!doctype html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <title>Mauricio Rodriguez — CV</title>
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <style>
-              body { font-family: -apple-system, system-ui, sans-serif; max-width: 720px; margin: 4rem auto; padding: 0 1rem; line-height: 1.6; }
-              h1 { margin-bottom: .2rem; }
-              a { color: #0366d6; text-decoration: none; display: inline-block; margin-right: 1rem; }
-              a:hover { text-decoration: underline; }
-              .docs { margin: 2rem 0; }
-              iframe { width: 100%; height: 90vh; border: 1px solid #ddd; }
-            </style>
-          </head>
-          <body>
-            <h1>Mauricio Rodriguez</h1>
-            <p>Documents compiled automatically from LaTeX sources.</p>
-            <div class="docs">
-              <a href="resume.pdf"><strong>Download Resume (PDF)</strong></a>
-            </div>
-            <iframe src="resume.pdf" title="Resume preview"></iframe>
-          </body>
-          </html>
-          HTML
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
