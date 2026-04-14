@@ -32,16 +32,10 @@ jobs:
           root_file: resume.tex
           latexmk_use_xelatex: true
 
-      - name: Compile coverletter.tex
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: coverletter.tex
-          latexmk_use_xelatex: true
-
       - name: Stage site
         run: |
           mkdir -p site
-          cp cv.pdf resume.pdf coverletter.pdf site/
+          cp cv.pdf resume.pdf site/
           cat > site/index.html <<'HTML'
           <!doctype html>
           <html lang="en">
@@ -64,7 +58,6 @@ jobs:
             <div class="docs">
               <a href="cv.pdf"><strong>CV (full)</strong></a>
               <a href="resume.pdf">Resume</a>
-              <a href="coverletter.pdf">Cover Letter</a>
             </div>
             <iframe src="cv.pdf" title="CV preview"></iframe>
           </body>
