@@ -1,0 +1,43 @@
+%-------------------------------------------------------------------------------
+% i18n helpers — shared between resume-en.tex and resume-es.tex
+%-------------------------------------------------------------------------------
+
+\usepackage{etoolbox}
+
+% Default language if none was set by the wrapper file.
+\providecommand{\lang}{en}
+
+% Branch on language: \iflang{<code>}{<then>}{<else>}
+\newcommand{\iflang}[3]{\ifdefstring{\lang}{#1}{#2}{#3}}
+
+% Month name by number (1..12). Add new languages here.
+\newcommand{\monthname}[1]{%
+  \ifcase#1\or
+    \iflang{es}{Ene.}{Jan.}\or
+    \iflang{es}{Feb.}{Feb.}\or
+    \iflang{es}{Mar.}{Mar.}\or
+    \iflang{es}{Abr.}{Apr.}\or
+    \iflang{es}{May.}{May.}\or
+    \iflang{es}{Jun.}{Jun.}\or
+    \iflang{es}{Jul.}{Jul.}\or
+    \iflang{es}{Ago.}{Aug.}\or
+    \iflang{es}{Sep.}{Sep.}\or
+    \iflang{es}{Oct.}{Oct.}\or
+    \iflang{es}{Nov.}{Nov.}\or
+    \iflang{es}{Dic.}{Dec.}%
+  \fi
+}
+
+% \daterange{startMonth}{startYear}{endMonth}{endYear}
+\newcommand{\daterange}[4]{\monthname{#1} #2 - \monthname{#3} #4}
+
+% \datefrom{startMonth}{startYear} — ongoing entries
+\newcommand{\datefrom}[2]{\monthname{#1} #2 - \iflang{es}{hoy}{today}}
+
+% Typography per language (polyglossia, XeLaTeX).
+\usepackage{polyglossia}
+\iflang{es}{%
+  \setmainlanguage{spanish}
+}{%
+  \setmainlanguage{english}
+}

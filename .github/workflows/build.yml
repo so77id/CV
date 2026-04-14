@@ -20,16 +20,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile resume.tex
+      - name: Compile resume-en.tex
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: resume-en.tex
+          latexmk_use_xelatex: true
+
+      - name: Compile resume-es.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume-es.tex
           latexmk_use_xelatex: true
 
       - name: Stage site
         run: |
           mkdir -p site
-          cp resume.pdf site/
+          cp resume-en.pdf resume-es.pdf site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

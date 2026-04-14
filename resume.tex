@@ -26,6 +26,9 @@
 % Specify the location of the included fonts
 \fontdir[fonts/]
 
+% i18n helpers (loads polyglossia based on \lang set by the wrapper).
+\input{resume/macros.tex}
+
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
@@ -98,12 +101,12 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/teaching.tex}
-\input{resume/publications.tex}
-\input{resume/education.tex}
-\input{resume/languages.tex}
+\input{resume/\lang/summary.tex}
+\input{resume/\lang/experience.tex}
+\input{resume/\lang/teaching.tex}
+\input{resume/\lang/publications.tex}
+\input{resume/\lang/education.tex}
+\input{resume/\lang/languages.tex}
 
 
 %-------------------------------------------------------------------------------

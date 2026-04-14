@@ -6,7 +6,7 @@ Backlog of ideas to evolve the CV repo beyond a single-PDF pipeline.
 
 - [x] **Build badge in README** — status of the GitHub Actions build + direct link to the published PDF.
 - [x] ~~**Improved landing page**~~ — dropped. The README badge is enough to reach the PDF.
-- [ ] **ES/EN versions** — compile Spanish and English resumes from shared sources. Publish as `resume-en.pdf` and `resume-es.pdf`, linked from the landing page.
+- [x] **ES/EN versions** — compile Spanish and English resumes from shared sources. Publish as `resume-en.pdf` and `resume-es.pdf`. Spanish content starts as a copy of English and needs to be translated in `resume/es/*.tex`.
 
 ## Backlog
 
