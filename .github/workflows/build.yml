@@ -62,11 +62,11 @@ jobs:
             <h1>Mauricio Rodriguez</h1>
             <p>Documents compiled automatically from LaTeX sources.</p>
             <div class="docs">
-              <a href="cv.pdf">CV (full)</a>
+              <a href="cv.pdf"><strong>CV (full)</strong></a>
               <a href="resume.pdf">Resume</a>
               <a href="coverletter.pdf">Cover Letter</a>
             </div>
-            <iframe src="resume.pdf" title="Resume preview"></iframe>
+            <iframe src="cv.pdf" title="CV preview"></iframe>
           </body>
           </html>
           HTML
