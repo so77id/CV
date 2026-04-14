@@ -16,34 +16,50 @@ concurrency:
 
 jobs:
   build:
+    name: Build ${{ matrix.lang }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lang: [en, es]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile resume-en.tex
+      - name: Compile resume-${{ matrix.lang }}.tex
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume-en.tex
+          root_file: resume-${{ matrix.lang }}.tex
           latexmk_use_xelatex: true
 
-      - name: Compile resume-es.tex
-        uses: xu-cheng/latex-action@v3
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
         with:
-          root_file: resume-es.tex
-          latexmk_use_xelatex: true
+          name: resume-${{ matrix.lang }}
+          path: resume-${{ matrix.lang }}.pdf
+
+  package:
+    name: Package site
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all resume artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
 
       - name: Stage site
         run: |
           mkdir -p site
-          cp resume-en.pdf resume-es.pdf site/
+          cp artifacts/resume-en/resume-en.pdf site/
+          cp artifacts/resume-es/resume-es.pdf site/
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
-    needs: build
+    name: Deploy to Pages
+    needs: package
     runs-on: ubuntu-latest
     environment:
       name: github-pages
